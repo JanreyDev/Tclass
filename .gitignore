@@ -1,0 +1,21 @@
+# Node
+node_modules
+.next
+out
+npm-debug.log*
+.DS_Store
+
+# PHP / Laravel
+/vendor
+/.env
+/.phpunit.result.cache
+/storage/*.key
+/public/storage
+/storage/framework/cache/data
+/storage/framework/sessions
+/storage/framework/views
+/storage/logs
+
+# Editor
+.vscode
+.idea
