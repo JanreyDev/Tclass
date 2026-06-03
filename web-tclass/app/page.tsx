@@ -112,7 +112,7 @@ const testimonials = [
     name: "Maria Dela Cruz",
     role: "Grade 12 Student",
     tag: "Student Voice",
-    quote: "San Isidro NHS helped me become more confident, disciplined, and prepared for my future.",
+    quote: "TCLASS helped me become more confident, disciplined, and prepared for my future.",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=320&q=85",
   },
   {
@@ -154,19 +154,18 @@ const partners = [
     name: "TESDA",
     detail: "Technical Education and\nSkills Development Authority",
     image: "/tesda.png",
-    logoClass: "h-14 w-14",
   },
   {
-    name: "UNICEF",
-    detail: "For every child",
+    name: "",
+    detail: "",
     image: "/unicef.png",
-    logoClass: "h-12 w-32",
+    isWide: true
   },
   {
-    name: "Rotary",
-    detail: "Club",
+    name: "",
+    detail: "",
     image: "/rotary.png",
-    logoClass: "h-12 w-32",
+    isWide: true
   },
 ];
 
@@ -238,15 +237,15 @@ export default function Home() {
         <div className="absolute inset-y-0 right-0 -z-10 w-full bg-[linear-gradient(90deg,#eef8ff_0%,#eef8ff_25%,rgba(238,248,255,.92)_39%,rgba(255,255,255,.18)_66%,rgba(255,255,255,0)_100%),url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=88')] bg-cover bg-[center_right]" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_68%_16%,rgba(255,255,255,.75),transparent_25%),linear-gradient(180deg,rgba(255,255,255,.05),rgba(238,248,255,.08))]" />
         <div className="absolute bottom-0 left-0 -z-10 h-28 w-[34%] bg-gradient-to-b from-transparent to-[#f6fbff]" />
-        <div className="mx-auto grid min-h-[560px] max-w-[1280px] items-center px-5 pb-28 pt-16 lg:grid-cols-[.86fr_1.14fr] lg:px-6">
+        <div className="mx-auto grid min-h-[560px] max-w-[1280px] items-center px-5 pb-28 pt-16 lg:grid-cols-[1.2fr_0.8fr] lg:px-6">
           <div>
-            <p className="mb-4 text-[13px] font-black uppercase tracking-wide text-amber-500">Welcome to San Isidro NHS</p>
-            <h1 className="max-w-[560px] text-[46px] font-black leading-[1.16] tracking-tight text-[#08265c] md:text-[62px]">
-              Empowering Minds, <span className="text-amber-500">Building Futures.</span>
+            <p className="mb-4 text-[13px] font-black uppercase tracking-wide text-amber-500">Welcome to TCLASS</p>
+            <h1 className="max-w-[800px] text-[46px] font-black leading-[1.16] tracking-tight text-[#08265c] md:text-[62px]">
+              Your Pathway to <br className="hidden md:block"/>
+              <span className="text-amber-500">Professional Excellence.</span>
             </h1>
-            <p className="mt-6 max-w-[560px] text-[17px] leading-8 text-[#08265c]/90">
-              We are committed to providing quality education, fostering values, and developing future-ready
-              individuals who will serve the nation.
+            <p className="mt-6 max-w-[650px] text-[17px] leading-8 text-[#08265c]/90">
+              The Tarlac Center for Learning and Skills Success is committed to providing quality education, fostering values, and developing future-ready individuals.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
               <a className="rounded-xl bg-[#08265c] px-7 py-4 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-[#0b347a]" href="#contact">
@@ -359,20 +358,31 @@ export default function Home() {
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-[1.25fr_1fr_1fr]">
             {facilities.map((facility, index) => (
               <article
-                className={`group overflow-hidden rounded-[22px] border border-slate-200 bg-white ${
+                className={`group overflow-hidden flex flex-col rounded-[22px] border border-slate-200 bg-white ${
                   index === 0 ? "md:col-span-2 lg:row-span-2" : ""
                 }`}
                 key={facility.name}
               >
-                <div className={`relative overflow-hidden ${index === 0 ? "h-80" : "h-44"}`}>
+                <div className={`relative overflow-hidden flex-1 ${index === 0 ? "min-h-[320px]" : "min-h-[176px]"}`}>
                   <div
                     className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105"
                     style={{ backgroundImage: `url('${facility.image}')` }}
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#08265c]/70 via-[#08265c]/10 to-transparent" />
-                  <div className="absolute bottom-4 left-4 right-4">
-                    <h3 className="text-xl font-black text-white">{facility.name}</h3>
-                    <p className="mt-1 max-w-md text-sm font-medium leading-6 text-white/85">{facility.text}</p>
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#08265c]/80 via-[#08265c]/20 to-transparent" />
+                  <div className="absolute bottom-5 left-5 right-5">
+                    <h3 className="text-[22px] font-black text-white drop-shadow-md">{facility.name}</h3>
+                    <p className="mt-1.5 max-w-md text-[13px] font-medium leading-relaxed text-white/90 drop-shadow-md">{facility.text}</p>
+                  </div>
+                </div>
+                <div className="shrink-0 p-5 bg-white border-t border-slate-100 flex flex-col justify-center">
+                  <div className="flex flex-wrap items-center justify-between gap-4 text-[13px] font-bold text-[#08265c]">
+                    <span className="flex items-center gap-2">
+                      <span className="relative flex size-2"><span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-green-400 opacity-75"></span><span className="relative inline-flex size-2 rounded-full bg-green-500"></span></span>
+                      Open for students
+                    </span>
+                    <span className="group-hover:text-amber-500 transition-colors flex items-center gap-1">
+                      View Gallery <span className="transition-transform group-hover:translate-x-1">→</span>
+                    </span>
                   </div>
                 </div>
               </article>
@@ -524,25 +534,21 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-[#fbfdff]">
+      <section className="border-y border-slate-200 bg-white">
         <div className="mx-auto max-w-[1280px] px-5 py-10 lg:px-6">
-          <div className="grid gap-6 lg:grid-cols-[220px_1fr] lg:items-center">
-            <div>
-              <p className="text-xs font-black uppercase tracking-[0.22em] text-amber-500">Our Partners</p>
-              <h2 className="mt-2 text-xl font-black leading-tight text-[#08265c]">Together in learning and service.</h2>
-            </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-6">
-              {partners.map((partner) => (
-                <div className="group rounded-2xl border border-slate-200 bg-white p-4 text-center transition hover:border-[#08265c]/20" key={partner.name}>
-                  <div className="mx-auto grid h-16 place-items-center">
-                    {/* eslint-disable-next-line @next/next/no-img-element */}
-                    <img src={partner.image} alt={`${partner.name} logo`} className={`${partner.logoClass} object-contain`} />
-                  </div>
-                  <p className="mt-3 text-[12px] font-black uppercase tracking-wide text-[#08265c]">{partner.name}</p>
-                  <p className="mt-1 text-[10px] font-semibold leading-4 text-slate-500 whitespace-pre-line">{partner.detail}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-8 lg:justify-between">
+          {partners.map((partner, i) => (
+            <div className="flex items-center gap-3" key={i}>
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src={partner.image} alt={partner.name} className={partner.isWide ? "h-11 object-contain" : "w-[52px] h-[52px] object-contain"} />
+              {partner.name && (
+                <div className="flex flex-col">
+                  <span className="text-[13px] font-bold text-[#08265c] leading-tight">{partner.name}</span>
+                  <span className="text-[11px] font-medium text-[#08265c]/80 leading-tight whitespace-pre-line mt-0.5">{partner.detail}</span>
                 </div>
-              ))}
+              )}
             </div>
+          ))}
           </div>
         </div>
       </section>

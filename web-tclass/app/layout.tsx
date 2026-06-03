@@ -13,8 +13,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "San Isidro National High School",
-  description: "Modern school portal for San Isidro National High School.",
+  title: "TCLASS | Provincial Government of Tarlac",
+  description: "Tarlac Center for Learning and Skills Success.",
 };
 
 export default function RootLayout({

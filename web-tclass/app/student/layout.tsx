@@ -1,0 +1,180 @@
+import React from 'react';
+import Link from 'next/link';
+import { 
+  LayoutDashboard, 
+  BookOpen, 
+  ClipboardList, 
+  GraduationCap, 
+  CalendarDays,
+  BookText, 
+  Megaphone, 
+  MessageSquare,
+  Calendar,
+  User,
+  Settings,
+  Book,
+  FileText,
+  HelpCircle,
+  Phone,
+  Search,
+  Bell,
+  Mail,
+  Moon,
+  Menu,
+  ChevronDown
+} from 'lucide-react';
+
+export default function StudentLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <div className="min-h-screen bg-[#F8FAFC] flex font-sans">
+      {/* Sidebar Navigation */}
+      <aside className="w-[280px] bg-[#0B1A3D] text-slate-300 hidden md:flex flex-col flex-shrink-0 z-20">
+        
+        {/* Logo Area */}
+        <div className="h-28 flex items-center px-6 mt-2">
+          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 shadow-sm border border-white/10">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/seal.png" alt="Tarlac Seal" className="w-11 h-11 rounded-full object-contain" />
+          </div>
+          <div className="flex flex-col">
+            <span className="text-white text-[18px] font-bold leading-snug tracking-wider">TCLASS</span>
+            <span className="text-[10px] text-blue-200/70 mt-0.5 leading-snug tracking-wide">Tarlac Center for Learning<br/>and Skills Success</span>
+          </div>
+        </div>
+        
+        {/* Menu Items */}
+        <nav className="flex-1 px-5 py-6 space-y-3 overflow-y-auto custom-scrollbar">
+          <Link href="/student" className="flex items-center px-4 py-3.5 bg-[#1E5EFF] text-white rounded-[14px] text-[15px] font-semibold mb-4 shadow-[0_4px_12px_rgba(30,94,255,0.2)]">
+            <LayoutDashboard className="w-5 h-5 mr-4" />
+            Dashboard
+          </Link>
+          
+          <Link href="/student/classes" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <BookOpen className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            My Classes
+          </Link>
+          <Link href="/student/assignments" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <ClipboardList className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Assignments
+          </Link>
+          <Link href="/student/grades" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <GraduationCap className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Grades
+          </Link>
+          <Link href="/student/schedule" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <CalendarDays className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Schedule
+          </Link>
+          <Link href="/student/materials" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <BookText className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Learning Materials
+          </Link>
+          <Link href="/student/announcements" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <Megaphone className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Announcements
+          </Link>
+          <Link href="/student/messages" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <MessageSquare className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Messages
+          </Link>
+          <Link href="/student/calendar" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <Calendar className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Calendar
+          </Link>
+          <Link href="/student/profile" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <User className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            My Profile
+          </Link>
+          <Link href="/student/settings" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
+            <Settings className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Settings
+          </Link>
+        </nav>
+
+        {/* Quick Links */}
+        <div className="p-5 border-t border-white/5 space-y-2 mt-auto">
+          <p className="px-4 text-[11px] font-bold text-slate-500 uppercase tracking-wider mb-3">Quick Links</p>
+          <Link href="/student/handbook" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
+            <Book className="w-4 h-4 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Student Handbook
+          </Link>
+          <Link href="/student/policies" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
+            <FileText className="w-4 h-4 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Guidelines & Policies
+          </Link>
+          <Link href="/student/help" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
+            <HelpCircle className="w-4 h-4 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Help Center
+          </Link>
+          <Link href="/student/contact" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
+            <Phone className="w-4 h-4 mr-4 text-slate-400 group-hover:text-white transition-colors" />
+            Contact Us
+          </Link>
+        </div>
+      </aside>
+
+      {/* Main Content Area */}
+      <div className="flex-1 flex flex-col min-w-0">
+        
+        {/* Top Header */}
+        <header className="h-[80px] bg-white border-b border-gray-200 flex items-center justify-between px-8 flex-shrink-0 z-10">
+          <div className="flex items-center gap-4 flex-1">
+            <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg md:hidden border border-gray-200">
+              <Menu className="w-5 h-5" />
+            </button>
+            <div className="hidden md:block">
+              <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg border border-gray-100 shadow-sm mr-2">
+                <Menu className="w-[18px] h-[18px]" strokeWidth={2.5} />
+              </button>
+            </div>
+            
+            {/* Search Bar */}
+            <div className="w-full max-w-[480px] relative hidden sm:block">
+              <Search className="w-4 h-4 absolute left-4 top-1/2 -translate-y-1/2 text-gray-400" />
+              <input 
+                type="text" 
+                placeholder="Search for classes, assignments, materials..." 
+                className="w-full pl-10 pr-4 py-2.5 bg-[#F8FAFC] border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500/20 focus:border-blue-500 transition-colors text-sm text-gray-700 placeholder:text-gray-400"
+              />
+            </div>
+          </div>
+
+          <div className="flex items-center space-x-4 sm:space-x-6">
+            <button className="relative p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors">
+              <Bell className="w-5 h-5" />
+              <span className="absolute top-1.5 right-1.5 w-4 h-4 bg-red-500 rounded-full text-[9px] font-bold text-white flex items-center justify-center border-2 border-white">3</span>
+            </button>
+            
+            <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors border border-gray-200">
+              <Moon className="w-5 h-5" />
+            </button>
+
+            <div className="h-8 w-[1px] bg-gray-200 mx-1 hidden sm:block"></div>
+
+            <div className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1.5 rounded-lg pr-2 transition-colors">
+              <img 
+                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" 
+                alt="Juan Miguel Santos" 
+                className="w-10 h-10 rounded-full object-cover border border-gray-200 shadow-sm"
+              />
+              <div className="hidden sm:block text-left">
+                <p className="text-[15px] font-bold text-gray-900 leading-none mb-1.5">Juan Miguel Santos</p>
+                <p className="text-[12px] font-medium text-gray-500 leading-none">BSIT 2A</p>
+              </div>
+              <ChevronDown className="w-4 h-4 text-gray-400 hidden sm:block ml-1" />
+            </div>
+          </div>
+        </header>
+
+        {/* Page Content */}
+        <main className="flex-1 overflow-y-auto">
+          {children}
+        </main>
+      </div>
+    </div>
+  );
+}
