@@ -583,8 +583,16 @@ export default function Home() {
           </div>
           <div>
             <h3 className="mb-4 font-black uppercase">Find Us</h3>
-            <div className="grid h-40 place-items-center rounded-2xl bg-white/5 border border-white/10 p-6 text-center font-black text-amber-400">
-              📍 IT Training Center Bldg,<br/>Brgy. Tibag, Tarlac City
+            <div className="h-40 w-full overflow-hidden rounded-2xl border border-white/10 bg-white/5 relative">
+              <iframe 
+                src="https://maps.google.com/maps?q=Brgy.%20Tibag,%20Tarlac%20City&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+                className="absolute inset-0 w-full h-full"
+                style={{ border: 0 }} 
+                allowFullScreen 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="TCLASS Location Map"
+              ></iframe>
             </div>
           </div>
         </div>
