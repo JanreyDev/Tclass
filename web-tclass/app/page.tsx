@@ -1,3 +1,6 @@
+import EnrollOptionsModal from "./components/EnrollOptionsModal";
+import LoginModal from "./components/LoginModal";
+
 const navItems = ["Home", "About", "Courses", "Facilities", "News & Events", "Gallery", "Contact"];
 
 const stats = [
@@ -10,48 +13,41 @@ const stats = [
 
 const courses = [
   {
-    icon: "👥",
-    title: "Junior High School",
-    text: "Building a strong academic foundation for future success.",
-    badge: "Grades 7–10",
-    image: "https://images.unsplash.com/photo-1577896851231-70ef18881754?auto=format&fit=crop&w=900&q=85",
+    icon: "💻",
+    title: "Computer Systems Servicing NC II",
+    text: "Install, configure, and maintain computer systems and networks.",
+    badge: "IT & Networking",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=900&q=85",
     dotClass: "bg-blue-500",
     iconClass: "bg-blue-600 text-white",
     linkClass: "text-blue-600",
   },
   {
-    icon: "🎓",
-    title: "Senior High School",
-    text: "Preparing students for college, careers, and life.",
-    badge: "Grades 11–12",
-    image: "https://images.unsplash.com/photo-1588072432836-e10032774350?auto=format&fit=crop&w=900&q=85",
+    icon: "🍽️",
+    title: "Food and Beverage Services NC II",
+    text: "Learn professional table service, beverage preparation, and hospitality skills.",
+    badge: "Hospitality",
+    image: "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=900&q=85",
     dotClass: "bg-green-500",
     iconClass: "bg-green-600 text-white",
     linkClass: "text-green-600",
   },
   {
-    icon: "📚",
-    title: "Senior High School Strands",
-    text: "Specialized academic and technical-vocational tracks.",
-    badge: "5 Strands",
-    image: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=900&q=85",
+    icon: "🔥",
+    title: "Shielded Metal Arc Welding NC II",
+    text: "Develop expertise in welding techniques for construction and manufacturing.",
+    badge: "Industrial Arts",
+    image: "https://images.unsplash.com/photo-1504328345606-18bbc8c9d7d1?auto=format&fit=crop&w=900&q=85",
     dotClass: "bg-amber-500",
     iconClass: "bg-amber-500 text-white",
     linkClass: "text-amber-500",
-    strands: [
-      "STEM (Science, Tech, Engineering & Math)",
-      "ABM (Accountancy, Business & Management)",
-      "HUMSS (Humanities & Social Sciences)",
-      "TVL (Technical-Vocational-Livelihood)",
-      "GAS (General Academic Strand)",
-    ],
   },
   {
-    icon: "💻",
-    title: "Alternative Learning System",
-    text: "Flexible learning opportunities for every learner.",
-    badge: "Flexible Path",
-    image: "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=900&q=85",
+    icon: "🥐",
+    title: "Bread and Pastry Production NC II",
+    text: "Master the art of baking breads, cakes, pastries, and other desserts.",
+    badge: "Culinary",
+    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=85",
     dotClass: "bg-violet-500",
     iconClass: "bg-violet-600 text-white",
     linkClass: "text-violet-600",
@@ -225,9 +221,7 @@ export default function Home() {
             <button className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white text-base transition hover:border-[#08265c]/30">
               ☼
             </button>
-            <button className="rounded-xl bg-[#08265c] px-5 py-2.5 text-[13px] font-bold text-white transition hover:bg-[#0b347a]">
-              Login
-            </button>
+            <LoginModal />
           </div>
         </div>
       </header>
@@ -248,9 +242,7 @@ export default function Home() {
               The Tarlac Center for Learning and Skills Success is committed to providing quality education, fostering values, and developing future-ready individuals.
             </p>
             <div className="mt-8 flex flex-wrap gap-4">
-              <a className="rounded-xl bg-[#08265c] px-7 py-4 text-sm font-bold text-white transition hover:-translate-y-1 hover:bg-[#0b347a]" href="#contact">
-                Enroll Now →
-              </a>
+              <EnrollOptionsModal />
               <a className="rounded-xl border border-[#08265c]/25 bg-white/85 px-7 py-4 text-sm font-bold text-[#08265c] transition hover:-translate-y-1 hover:bg-white" href="#about">
                 Learn More →
               </a>
@@ -314,15 +306,15 @@ export default function Home() {
       </section>
 
       <section id="courses" className="mx-auto max-w-[1280px] px-5 pb-14 pt-12 lg:px-6">
-        <SectionTitle title="Our Courses" subtitle="Quality education across different levels and strands." />
+        <SectionTitle title="Our Courses" subtitle="Industry-relevant training programs for skill development and employment." />
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
           {courses.map((course) => (
             <article
-              className="group overflow-hidden rounded-[22px] border border-slate-200 bg-white transition hover:-translate-y-1 hover:border-[#08265c]/20"
+              className="group flex h-full flex-col overflow-hidden rounded-[22px] border border-slate-200 bg-white transition hover:-translate-y-1 hover:border-[#08265c]/20"
               key={course.title}
             >
-              <div>
-                <div className="relative h-44 overflow-hidden bg-slate-100">
+              <div className="flex h-full flex-col">
+                <div className="relative h-44 shrink-0 overflow-hidden bg-slate-100">
                   <div
                     className="absolute inset-0 bg-cover bg-center transition duration-500 group-hover:scale-105"
                     style={{ backgroundImage: `url('${course.image}')` }}
@@ -336,7 +328,7 @@ export default function Home() {
                   </div>
                 </div>
 
-                <div className="flex min-h-[210px] flex-col p-6">
+                <div className="flex flex-1 flex-col p-6">
                   <h3 className="text-xl font-black leading-7 text-[#08265c]">{course.title}</h3>
                   <p className="mt-3 text-sm font-semibold leading-6 text-slate-600">{course.text}</p>
 
