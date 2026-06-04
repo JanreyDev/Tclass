@@ -234,15 +234,15 @@ export default function Home() {
 
       <section className="relative isolate overflow-visible">
         <div className="absolute inset-0 -z-20 bg-[#eef8ff]" />
-        <div className="absolute inset-y-0 right-0 -z-10 w-full bg-[linear-gradient(90deg,#eef8ff_0%,#eef8ff_25%,rgba(238,248,255,.92)_39%,rgba(255,255,255,.18)_66%,rgba(255,255,255,0)_100%),url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1800&q=88')] bg-cover bg-[center_right]" />
+        <div className="absolute inset-y-0 right-0 -z-10 w-full bg-[linear-gradient(90deg,#eef8ff_0%,#eef8ff_25%,rgba(238,248,255,.92)_39%,rgba(255,255,255,.18)_66%,rgba(255,255,255,0)_100%),url('/tclass.jpg')] bg-cover bg-[center_right]" />
         <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_68%_16%,rgba(255,255,255,.75),transparent_25%),linear-gradient(180deg,rgba(255,255,255,.05),rgba(238,248,255,.08))]" />
         <div className="absolute bottom-0 left-0 -z-10 h-28 w-[34%] bg-gradient-to-b from-transparent to-[#f6fbff]" />
         <div className="mx-auto grid min-h-[560px] max-w-[1280px] items-center px-5 pb-28 pt-16 lg:grid-cols-[1.2fr_0.8fr] lg:px-6">
           <div>
             <p className="mb-4 text-[13px] font-black uppercase tracking-wide text-amber-500">Welcome to TCLASS</p>
             <h1 className="max-w-[800px] text-[46px] font-black leading-[1.16] tracking-tight text-[#08265c] md:text-[62px]">
-              Your Pathway to <br className="hidden md:block"/>
-              <span className="text-amber-500">Professional Excellence.</span>
+              Build job-ready skills with a <span className="text-[#fe9a00]">modern training</span> center in{" "}
+              <span className="text-[#fe9a00]">Tarlac</span>.
             </h1>
             <p className="mt-6 max-w-[650px] text-[17px] leading-8 text-[#08265c]/90">
               The Tarlac Center for Learning and Skills Success is committed to providing quality education, fostering values, and developing future-ready individuals.
