@@ -25,28 +25,29 @@ import {
   Moon,
   Menu,
   ChevronDown,
-  ChevronRight
+  UserCircle,
+  CreditCard,
+  FileText
 } from 'lucide-react';
 
 const mainNavItems = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-  { name: 'User Management', href: '/admin/users', icon: Users, hasDropdown: true },
-  { name: 'Academic Management', href: '/admin/academic', icon: BookOpen, hasDropdown: true },
-  { name: 'Classes & Sections', href: '/admin/classes', icon: Layers },
-  { name: 'Subjects Management', href: '/admin/subjects', icon: BookText },
-  { name: 'Enrollment Management', href: '/admin/enrollment', icon: ClipboardCheck },
-  { name: 'Grades Management', href: '/admin/grades', icon: GraduationCap },
-  { name: 'Attendance Monitoring', href: '/admin/attendance', icon: CalendarCheck },
-  { name: 'Learning Materials', href: '/admin/materials', icon: BookText },
-  { name: 'Announcements', href: '/admin/announcements', icon: Megaphone },
-  { name: 'Reports & Analytics', href: '/admin/reports', icon: BarChart3 },
-  { name: 'Calendar', href: '/admin/calendar', icon: Calendar },
-  { name: 'System Settings', href: '/admin/settings', icon: Settings },
-  { name: 'Audit Logs', href: '/admin/audit', icon: ShieldCheck },
+  { name: 'User Management', href: '/admin/users', icon: Users },
+  { name: 'Academic Management', href: '/admin/academic', icon: BookOpen },
+  { name: 'Enrollment Management', href: '/admin/enrollments', icon: ClipboardCheck },
+  { name: 'Class & Section', href: '/admin/classes', icon: Layers },
+  { name: 'Students', href: '/admin/students', icon: GraduationCap },
+  { name: 'Faculty', href: '/admin/faculty', icon: UserCircle },
+  { name: 'Subjects', href: '/admin/subjects', icon: BookText },
+  { name: 'Rooms', href: '/admin/rooms', icon: Layers }, // Using Layers as fallback, will verify icon
+  { name: 'Schedule', href: '/admin/schedule', icon: Calendar },
+  { name: 'Reports', href: '/admin/reports', icon: BarChart3 },
+  { name: 'Payments', href: '/admin/payments', icon: CreditCard },
 ];
 
 const bottomNavItems = [
-  { name: 'Help Center', href: '/admin/help', icon: HelpCircle },
+  { name: 'Settings', href: '/admin/settings', icon: Settings },
+  { name: 'Audit Logs', href: '/admin/logs', icon: FileText },
   { name: 'Logout', href: '/logout', icon: LogOut },
 ];
 
