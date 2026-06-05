@@ -22,15 +22,18 @@ import {
   Bell,
   Moon,
   Menu,
-  ChevronDown
+  ChevronDown,
+  Star
 } from 'lucide-react';
 
 const mainNavItems = [
   { name: 'Dashboard', href: '/faculty', icon: LayoutDashboard },
+  { name: 'Schedule', href: '/faculty/schedule', icon: Calendar },
   { name: 'My Classes', href: '/faculty/classes', icon: BookOpen },
   { name: 'Students', href: '/faculty/students', icon: Users },
   { name: 'Attendance', href: '/faculty/attendance', icon: ClipboardCheck },
   { name: 'Grades', href: '/faculty/grades', icon: GraduationCap },
+  { name: 'Evaluation', href: '/faculty/evaluation', icon: Star },
   { name: 'Learning Materials', href: '/faculty/materials', icon: BookText },
   { name: 'Assignments', href: '/faculty/assignments', icon: FileEdit },
   { name: 'Announcements', href: '/faculty/announcements', icon: Megaphone },
