@@ -345,10 +345,10 @@ export default function AdminRoomsPage() {
                 <div className="flex items-center justify-between">
                   <span className="text-[11px] font-medium text-slate-500">Features</span>
                   <div className="flex items-center gap-2 text-slate-400">
-                    <Wifi className="w-3.5 h-3.5 hover:text-blue-600 transition-colors" title="WiFi Available" />
-                    <Projector className="w-3.5 h-3.5 hover:text-blue-600 transition-colors" title="Projector Equipped" />
-                    <Monitor className="w-3.5 h-3.5 hover:text-blue-600 transition-colors" title="Computer Provided" />
-                    <Plug className="w-3.5 h-3.5 hover:text-blue-600 transition-colors" title="Power Outlets" />
+                    <span title="WiFi Available"><Wifi className="w-3.5 h-3.5 hover:text-blue-600 transition-colors" /></span>
+                    <span title="Projector Equipped"><Projector className="w-3.5 h-3.5 hover:text-blue-600 transition-colors" /></span>
+                    <span title="Computer Provided"><Monitor className="w-3.5 h-3.5 hover:text-blue-600 transition-colors" /></span>
+                    <span title="Power Outlets"><Plug className="w-3.5 h-3.5 hover:text-blue-600 transition-colors" /></span>
                   </div>
                 </div>
                 <div className="flex flex-col gap-1 mt-1">
