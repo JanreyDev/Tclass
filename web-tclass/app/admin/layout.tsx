@@ -32,9 +32,9 @@ import {
 
 const mainNavItems = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-  { name: 'User Management', href: '/admin/users', icon: Users },
-  { name: 'Academic Management', href: '/admin/academic', icon: BookOpen },
-  { name: 'Enrollment Management', href: '/admin/enrollments', icon: ClipboardCheck },
+  { name: 'Users', href: '/admin/users', icon: Users },
+  { name: 'Academic', href: '/admin/academic', icon: BookOpen },
+  { name: 'Enrollments', href: '/admin/enrollments', icon: ClipboardCheck },
   { name: 'Class & Section', href: '/admin/classes', icon: Layers },
   { name: 'Students', href: '/admin/students', icon: GraduationCap },
   { name: 'Faculty', href: '/admin/faculty', icon: UserCircle },
@@ -42,7 +42,6 @@ const mainNavItems = [
   { name: 'Rooms', href: '/admin/rooms', icon: Layers }, // Using Layers as fallback, will verify icon
   { name: 'Schedule', href: '/admin/schedule', icon: Calendar },
   { name: 'Reports', href: '/admin/reports', icon: BarChart3 },
-  { name: 'Payments', href: '/admin/payments', icon: CreditCard },
 ];
 
 const bottomNavItems = [
