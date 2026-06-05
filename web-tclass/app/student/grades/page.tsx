@@ -143,9 +143,9 @@ export default function GradesReportPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-[1fr_400px] gap-6 mb-8">
+      <div className="grid grid-cols-1 xl:grid-cols-1 2xl:grid-cols-[1fr_360px] gap-6 mb-8">
         {/* Left Column */}
-        <div className="flex flex-col gap-6">
+        <div className="flex flex-col gap-6 min-w-0">
           
           {/* Subjects and Grades Table */}
           <div className="bg-white border border-slate-200 rounded-xl overflow-hidden flex flex-col">
@@ -154,7 +154,7 @@ export default function GradesReportPage() {
             </div>
             
             <div className="overflow-x-auto flex-1">
-              <table className="w-full text-left border-collapse">
+              <table className="w-full text-left border-collapse min-w-[700px]">
                 <thead>
                   <tr className="border-b border-slate-200 bg-slate-50/50">
                     <th className="py-4 px-6 text-[10px] font-bold text-slate-400 uppercase tracking-wider w-12"></th>
@@ -248,7 +248,7 @@ export default function GradesReportPage() {
         </div>
 
         {/* Right Column */}
-        <div className="flex flex-col gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-1 flex-col gap-6">
           
           {/* Grade Summary */}
           <div className="bg-white border border-slate-200 rounded-xl p-6">
@@ -286,7 +286,7 @@ export default function GradesReportPage() {
           </div>
 
           {/* Grading Scale */}
-          <div className="bg-white border border-slate-200 rounded-xl overflow-hidden">
+          <div className="bg-white border border-slate-200 rounded-xl overflow-hidden h-full">
             <div className="p-6 border-b border-slate-200">
               <h2 className="text-lg font-black text-[#0B1A3D]">Grading Scale</h2>
             </div>

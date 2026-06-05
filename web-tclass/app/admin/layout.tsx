@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { 
   LayoutDashboard, 
   Users, 
@@ -25,21 +28,52 @@ import {
   ChevronRight
 } from 'lucide-react';
 
+const mainNavItems = [
+  { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
+  { name: 'Users Management', href: '/admin/users', icon: Users, hasDropdown: true },
+  { name: 'Academic Management', href: '/admin/academic', icon: BookOpen, hasDropdown: true },
+  { name: 'Classes & Sections', href: '/admin/classes', icon: Layers },
+  { name: 'Subjects Management', href: '/admin/subjects', icon: BookText },
+  { name: 'Enrollment Management', href: '/admin/enrollment', icon: ClipboardCheck },
+  { name: 'Grades Management', href: '/admin/grades', icon: GraduationCap },
+  { name: 'Attendance Monitoring', href: '/admin/attendance', icon: CalendarCheck },
+  { name: 'Learning Materials', href: '/admin/materials', icon: BookText },
+  { name: 'Announcements', href: '/admin/announcements', icon: Megaphone },
+  { name: 'Reports & Analytics', href: '/admin/reports', icon: BarChart3 },
+  { name: 'Calendar', href: '/admin/calendar', icon: Calendar },
+  { name: 'System Settings', href: '/admin/settings', icon: Settings },
+  { name: 'Audit Logs', href: '/admin/audit', icon: ShieldCheck },
+];
+
+const bottomNavItems = [
+  { name: 'Help Center', href: '/admin/help', icon: HelpCircle },
+  { name: 'Logout', href: '/logout', icon: LogOut },
+];
+
+function isActiveRoute(pathname: string, href: string) {
+  if (href === '/admin') {
+    return pathname === href;
+  }
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function AdminLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex font-sans">
+    <div className="h-screen overflow-hidden bg-[#F8FAFC] flex font-sans">
       {/* Sidebar Navigation */}
-      <aside className="w-[280px] bg-[#0B1A3D] text-slate-300 hidden md:flex flex-col flex-shrink-0 z-20 overflow-y-auto custom-scrollbar">
+      <aside className="h-screen w-[240px] bg-[#0B1A3D] text-slate-300 hidden md:flex flex-col flex-shrink-0 z-20">
         
         {/* Logo Area */}
-        <div className="h-28 flex items-center px-6 mt-2 flex-shrink-0">
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 shadow-sm border border-white/10">
+        <div className="h-28 flex items-center px-6 mt-2">
+          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 shadow-sm border border-white/10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/seal.png" alt="Tarlac Seal" className="w-11 h-11 rounded-full object-contain" />
+            <img src="/seal.png" alt="Tarlac Seal" className="w-9 h-9 rounded-full object-contain" />
           </div>
           <div className="flex flex-col">
             <span className="text-white text-[18px] font-bold leading-snug tracking-wider">TCLASS</span>
@@ -47,100 +81,60 @@ export default function AdminLayout({
           </div>
         </div>
         
-        {/* Menu Items */}
-        <nav className="flex-1 px-5 py-6 space-y-2">
-          <Link href="/admin" className="flex items-center px-4 py-3.5 bg-[#1E5EFF] text-white rounded-[14px] text-[15px] font-semibold mb-4 shadow-[0_4px_12px_rgba(30,94,255,0.2)]">
-            <LayoutDashboard className="w-5 h-5 mr-4" />
-            Dashboard
-          </Link>
-          
-          <Link href="/admin/users" className="flex items-center justify-between px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <div className="flex items-center">
-              <Users className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-              Users Management
-            </div>
-            <ChevronRight className="w-4 h-4 opacity-50" />
-          </Link>
-          
-          <Link href="/admin/academic" className="flex items-center justify-between px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <div className="flex items-center">
-              <BookOpen className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-              Academic Management
-            </div>
-            <ChevronRight className="w-4 h-4 opacity-50" />
-          </Link>
-          
-          <Link href="/admin/classes" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <Layers className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Classes & Sections
-          </Link>
-          
-          <Link href="/admin/subjects" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <BookText className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Subjects Management
-          </Link>
-          
-          <Link href="/admin/enrollment" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <ClipboardCheck className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Enrollment Management
-          </Link>
-          
-          <Link href="/admin/grades" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <GraduationCap className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Grades Management
-          </Link>
-          
-          <Link href="/admin/attendance" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <CalendarCheck className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Attendance Monitoring
-          </Link>
-          
-          <Link href="/admin/materials" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <BookText className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Learning Materials
-          </Link>
-          
-          <Link href="/admin/announcements" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <Megaphone className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Announcements
-          </Link>
-          
-          <Link href="/admin/reports" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <BarChart3 className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Reports & Analytics
-          </Link>
-          
-          <Link href="/admin/calendar" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <Calendar className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Calendar
-          </Link>
-          
-          <Link href="/admin/settings" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <Settings className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            System Settings
-          </Link>
-          
-          <Link href="/admin/audit" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <ShieldCheck className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Audit Logs
-          </Link>
+        {/* Main Menu Items */}
+        <nav className="flex-1 px-5 pb-4 pt-3 space-y-1 overflow-y-auto custom-scrollbar">
+          {mainNavItems.map((item) => {
+            const isActive = isActiveRoute(pathname, item.href);
+            const Icon = item.icon;
+            
+            return (
+              <Link 
+                key={item.name}
+                aria-current={isActive ? 'page' : undefined}
+                href={item.href} 
+                className={isActive 
+                  ? "flex items-center justify-between px-4 py-2.5 bg-[#1E5EFF] text-white rounded-[12px] text-[13px] font-bold shadow-[0_4px_12px_rgba(30,94,255,0.2)]"
+                  : "flex items-center justify-between px-4 py-2.5 text-slate-300 hover:bg-white/5 hover:text-white rounded-[12px] text-[13px] font-semibold transition-colors group"
+                }
+              >
+                <div className="flex items-center">
+                  <Icon className={isActive ? "w-4 h-4 mr-3 shrink-0" : "w-4 h-4 mr-3 shrink-0 text-slate-400 group-hover:text-white transition-colors"} />
+                  <span className="truncate">{item.name}</span>
+                </div>
+                {item.hasDropdown && (
+                  <ChevronRight className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'opacity-100' : 'opacity-50'}`} />
+                )}
+              </Link>
+            );
+          })}
         </nav>
 
-        {/* Bottom Actions */}
-        <div className="p-5 border-t border-white/5 space-y-2 flex-shrink-0">
-          <Link href="/admin/help" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <HelpCircle className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Help Center
-          </Link>
-          <Link href="/logout" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[14px] font-medium transition-colors group">
-            <LogOut className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Logout
-          </Link>
+        {/* Bottom Menu Items */}
+        <div className="px-5 pb-6 pt-4 border-t border-white/5 space-y-1 shrink-0">
+          {bottomNavItems.map((item) => {
+            const isActive = isActiveRoute(pathname, item.href);
+            const Icon = item.icon;
+            
+            return (
+              <Link 
+                key={item.name}
+                aria-current={isActive ? 'page' : undefined}
+                href={item.href} 
+                className={isActive 
+                  ? "flex items-center px-4 py-2.5 bg-[#1E5EFF] text-white rounded-[12px] text-[13px] font-bold shadow-[0_4px_12px_rgba(30,94,255,0.2)]"
+                  : "flex items-center px-4 py-2.5 text-slate-300 hover:bg-white/5 hover:text-white rounded-[12px] text-[13px] font-semibold transition-colors group"
+                }
+              >
+                <Icon className={isActive ? "w-4 h-4 mr-3" : "w-4 h-4 mr-3 text-slate-400 group-hover:text-white transition-colors"} />
+                {item.name}
+              </Link>
+            );
+          })}
         </div>
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col h-screen min-w-0">
         
         {/* Top Header */}
         <header className="h-[80px] bg-white border-b border-gray-200 flex items-center justify-between px-8 flex-shrink-0 z-10">

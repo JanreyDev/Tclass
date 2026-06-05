@@ -1,5 +1,8 @@
+"use client";
+
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { 
   LayoutDashboard, 
   BookOpen, 
@@ -22,21 +25,50 @@ import {
   ChevronDown
 } from 'lucide-react';
 
+const mainNavItems = [
+  { name: 'Dashboard', href: '/faculty', icon: LayoutDashboard },
+  { name: 'My Classes', href: '/faculty/classes', icon: BookOpen },
+  { name: 'Students', href: '/faculty/students', icon: Users },
+  { name: 'Attendance', href: '/faculty/attendance', icon: ClipboardCheck },
+  { name: 'Grades', href: '/faculty/grades', icon: GraduationCap },
+  { name: 'Learning Materials', href: '/faculty/materials', icon: BookText },
+  { name: 'Assignments', href: '/faculty/assignments', icon: FileEdit },
+  { name: 'Announcements', href: '/faculty/announcements', icon: Megaphone },
+  { name: 'Calendar', href: '/faculty/calendar', icon: Calendar },
+  { name: 'Messages', href: '/faculty/messages', icon: MessageSquare },
+  { name: 'Reports', href: '/faculty/reports', icon: FileBarChart },
+  { name: 'Settings', href: '/faculty/settings', icon: Settings },
+];
+
+const bottomNavItems = [
+  { name: 'Help Center', href: '/faculty/help', icon: HelpCircle },
+  { name: 'Logout', href: '/logout', icon: LogOut },
+];
+
+function isActiveRoute(pathname: string, href: string) {
+  if (href === '/faculty') {
+    return pathname === href;
+  }
+  return pathname === href || pathname.startsWith(`${href}/`);
+}
+
 export default function FacultyLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const pathname = usePathname();
+
   return (
-    <div className="min-h-screen bg-[#F8FAFC] flex font-sans">
+    <div className="h-screen overflow-hidden bg-[#F8FAFC] flex font-sans">
       {/* Sidebar Navigation */}
-      <aside className="w-[280px] bg-[#0B1A3D] text-slate-300 hidden md:flex flex-col flex-shrink-0 z-20">
+      <aside className="h-screen w-[240px] bg-[#0B1A3D] text-slate-300 hidden md:flex flex-col flex-shrink-0 z-20">
         
         {/* Logo Area */}
         <div className="h-28 flex items-center px-6 mt-2">
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 shadow-sm border border-white/10">
+          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 shadow-sm border border-white/10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/seal.png" alt="Tarlac Seal" className="w-11 h-11 rounded-full object-contain" />
+            <img src="/seal.png" alt="Tarlac Seal" className="w-9 h-9 rounded-full object-contain" />
           </div>
           <div className="flex flex-col">
             <span className="text-white text-[18px] font-bold leading-snug tracking-wider">TCLASS</span>
@@ -44,74 +76,55 @@ export default function FacultyLayout({
           </div>
         </div>
         
-        {/* Menu Items */}
-        <nav className="flex-1 px-5 py-6 space-y-3 overflow-y-auto custom-scrollbar">
-          <Link href="/faculty" className="flex items-center px-4 py-3.5 bg-[#1E5EFF] text-white rounded-[14px] text-[15px] font-semibold mb-4 shadow-[0_4px_12px_rgba(30,94,255,0.2)]">
-            <LayoutDashboard className="w-5 h-5 mr-4" />
-            Dashboard
-          </Link>
-          
-          <Link href="/faculty/classes" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <BookOpen className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            My Classes
-          </Link>
-          <Link href="/faculty/students" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <Users className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Students
-          </Link>
-          <Link href="/faculty/attendance" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <ClipboardCheck className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Attendance
-          </Link>
-          <Link href="/faculty/grades" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <GraduationCap className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Grades
-          </Link>
-          <Link href="/faculty/materials" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <BookText className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Learning Materials
-          </Link>
-          <Link href="/faculty/assignments" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <FileEdit className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Assignments
-          </Link>
-          <Link href="/faculty/announcements" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <Megaphone className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Announcements
-          </Link>
-          <Link href="/faculty/calendar" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <Calendar className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Calendar
-          </Link>
-          <Link href="/faculty/messages" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <MessageSquare className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Messages
-          </Link>
-          <Link href="/faculty/reports" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <FileBarChart className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Reports
-          </Link>
-          <Link href="/faculty/settings" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <Settings className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Settings
-          </Link>
+        {/* Main Menu Items */}
+        <nav className="flex-1 px-5 pb-4 pt-3 space-y-1 overflow-y-auto custom-scrollbar">
+          {mainNavItems.map((item) => {
+            const isActive = isActiveRoute(pathname, item.href);
+            const Icon = item.icon;
+            
+            return (
+              <Link 
+                key={item.name}
+                aria-current={isActive ? 'page' : undefined}
+                href={item.href} 
+                className={isActive 
+                  ? "flex items-center px-4 py-2.5 bg-[#1E5EFF] text-white rounded-[12px] text-[13px] font-bold shadow-[0_4px_12px_rgba(30,94,255,0.2)]"
+                  : "flex items-center px-4 py-2.5 text-slate-300 hover:bg-white/5 hover:text-white rounded-[12px] text-[13px] font-semibold transition-colors group"
+                }
+              >
+                <Icon className={isActive ? "w-4 h-4 mr-3" : "w-4 h-4 mr-3 text-slate-400 group-hover:text-white transition-colors"} />
+                {item.name}
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Bottom Menu Items */}
-        <div className="p-5 border-t border-white/5 space-y-2 mt-auto">
-          <Link href="/faculty/help" className="flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <HelpCircle className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Help Center
-          </Link>
-          <button className="w-full flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group">
-            <LogOut className="w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors" />
-            Logout
-          </button>
+        <div className="px-5 pb-6 pt-4 border-t border-white/5 space-y-1 shrink-0">
+          {bottomNavItems.map((item) => {
+            const isActive = isActiveRoute(pathname, item.href);
+            const Icon = item.icon;
+            
+            return (
+              <Link 
+                key={item.name}
+                aria-current={isActive ? 'page' : undefined}
+                href={item.href} 
+                className={isActive 
+                  ? "flex items-center px-4 py-2.5 bg-[#1E5EFF] text-white rounded-[12px] text-[13px] font-bold shadow-[0_4px_12px_rgba(30,94,255,0.2)]"
+                  : "flex items-center px-4 py-2.5 text-slate-300 hover:bg-white/5 hover:text-white rounded-[12px] text-[13px] font-semibold transition-colors group"
+                }
+              >
+                <Icon className={isActive ? "w-4 h-4 mr-3" : "w-4 h-4 mr-3 text-slate-400 group-hover:text-white transition-colors"} />
+                {item.name}
+              </Link>
+            );
+          })}
         </div>
       </aside>
 
       {/* Main Content Area */}
-      <div className="flex-1 flex flex-col min-w-0">
+      <div className="flex-1 flex flex-col h-screen min-w-0">
         
         {/* Top Header */}
         <header className="h-[80px] bg-white border-b border-gray-200 flex items-center justify-between px-8 flex-shrink-0 z-10">
@@ -154,7 +167,7 @@ export default function FacultyLayout({
                 alt="Juan Dela Cruz" 
                 className="w-10 h-10 rounded-full object-cover border border-gray-200 shadow-sm"
               />
-              <div className="hidden sm:block">
+              <div className="hidden sm:block text-left">
                 <p className="text-[15px] font-bold text-gray-900 leading-none mb-1.5">Juan Dela Cruz</p>
                 <p className="text-[12px] font-medium text-gray-500 leading-none">Faculty</p>
               </div>

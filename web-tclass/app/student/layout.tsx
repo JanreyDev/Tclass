@@ -20,7 +20,7 @@ import {
   Wallet
 } from 'lucide-react';
 
-const navItems = [
+const mainNavItems = [
   { name: 'Dashboard', href: '/student', icon: LayoutDashboard },
   { name: 'My Classes', href: '/student/classes', icon: BookOpen },
   { name: 'Assignments', href: '/student/assignments', icon: ClipboardList },
@@ -28,6 +28,9 @@ const navItems = [
   { name: 'Academic Evaluation', href: '/student/evaluation', icon: FileCheck },
   { name: 'Schedule', href: '/student/schedule', icon: CalendarDays },
   { name: 'Student Ledger', href: '/student/ledger', icon: Wallet },
+];
+
+const bottomNavItems = [
   { name: 'My Profile', href: '/student/profile', icon: User },
   { name: 'Settings', href: '/student/settings', icon: Settings },
 ];
@@ -50,13 +53,13 @@ export default function StudentLayout({
   return (
     <div className="h-screen overflow-hidden bg-[#F8FAFC] flex font-sans">
       {/* Sidebar Navigation */}
-      <aside className="h-screen w-[280px] bg-[#0B1A3D] text-slate-300 hidden md:flex flex-col flex-shrink-0 z-20">
+      <aside className="h-screen w-[240px] bg-[#0B1A3D] text-slate-300 hidden md:flex flex-col flex-shrink-0 z-20">
         
         {/* Logo Area */}
         <div className="h-28 flex items-center px-6 mt-2">
-          <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 shadow-sm border border-white/10">
+          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 shadow-sm border border-white/10">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/seal.png" alt="Tarlac Seal" className="w-11 h-11 rounded-full object-contain" />
+            <img src="/seal.png" alt="Tarlac Seal" className="w-9 h-9 rounded-full object-contain" />
           </div>
           <div className="flex flex-col">
             <span className="text-white text-[18px] font-bold leading-snug tracking-wider">TCLASS</span>
@@ -64,9 +67,9 @@ export default function StudentLayout({
           </div>
         </div>
         
-        {/* Menu Items */}
-        <nav className="px-5 pb-4 pt-3 space-y-1.5 overflow-y-auto custom-scrollbar">
-          {navItems.map((item) => {
+        {/* Main Menu Items */}
+        <nav className="flex-1 px-5 pb-4 pt-3 space-y-1 overflow-y-auto custom-scrollbar">
+          {mainNavItems.map((item) => {
             const isActive = isActiveRoute(pathname, item.href);
             const Icon = item.icon;
             
@@ -76,16 +79,39 @@ export default function StudentLayout({
                 aria-current={isActive ? 'page' : undefined}
                 href={item.href} 
                 className={isActive 
-                  ? "flex items-center px-4 py-3 bg-[#1E5EFF] text-white rounded-[14px] text-[15px] font-semibold shadow-[0_4px_12px_rgba(30,94,255,0.2)]"
-                  : "flex items-center px-4 py-3 text-slate-300 hover:bg-white/5 hover:text-white rounded-[14px] text-[15px] font-medium transition-colors group"
+                  ? "flex items-center px-4 py-2.5 bg-[#1E5EFF] text-white rounded-[12px] text-[13px] font-bold shadow-[0_4px_12px_rgba(30,94,255,0.2)]"
+                  : "flex items-center px-4 py-2.5 text-slate-300 hover:bg-white/5 hover:text-white rounded-[12px] text-[13px] font-semibold transition-colors group"
                 }
               >
-                <Icon className={isActive ? "w-5 h-5 mr-4" : "w-5 h-5 mr-4 text-slate-400 group-hover:text-white transition-colors"} />
+                <Icon className={isActive ? "w-4 h-4 mr-3" : "w-4 h-4 mr-3 text-slate-400 group-hover:text-white transition-colors"} />
                 {item.name}
               </Link>
             );
           })}
         </nav>
+
+        {/* Bottom Menu Items */}
+        <div className="px-5 pb-6 pt-4 border-t border-white/5 space-y-1 shrink-0">
+          {bottomNavItems.map((item) => {
+            const isActive = isActiveRoute(pathname, item.href);
+            const Icon = item.icon;
+            
+            return (
+              <Link 
+                key={item.name}
+                aria-current={isActive ? 'page' : undefined}
+                href={item.href} 
+                className={isActive 
+                  ? "flex items-center px-4 py-2.5 bg-[#1E5EFF] text-white rounded-[12px] text-[13px] font-bold shadow-[0_4px_12px_rgba(30,94,255,0.2)]"
+                  : "flex items-center px-4 py-2.5 text-slate-300 hover:bg-white/5 hover:text-white rounded-[12px] text-[13px] font-semibold transition-colors group"
+                }
+              >
+                <Icon className={isActive ? "w-4 h-4 mr-3" : "w-4 h-4 mr-3 text-slate-400 group-hover:text-white transition-colors"} />
+                {item.name}
+              </Link>
+            );
+          })}
+        </div>
       </aside>
 
       {/* Main Content Area */}
