@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { 
@@ -62,6 +62,7 @@ export default function AdminLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <div className="h-screen overflow-hidden bg-[#F8FAFC] flex font-sans">
@@ -100,9 +101,7 @@ export default function AdminLayout({
                   <Icon className={isActive ? "w-4 h-4 mr-3 shrink-0" : "w-4 h-4 mr-3 shrink-0 text-slate-400 group-hover:text-white transition-colors"} />
                   <span className="truncate">{item.name}</span>
                 </div>
-                {item.hasDropdown && (
-                  <ChevronRight className={`w-3.5 h-3.5 shrink-0 ${isActive ? 'opacity-100' : 'opacity-50'}`} />
-                )}
+
               </Link>
             );
           })}
@@ -175,17 +174,35 @@ export default function AdminLayout({
 
             <div className="h-8 w-[1px] bg-gray-200 mx-1 hidden sm:block"></div>
 
-            <div className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1.5 rounded-lg pr-2 transition-colors">
-              <img 
-                src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" 
-                alt="Admin User" 
-                className="w-10 h-10 rounded-full object-cover border border-gray-200 shadow-sm"
-              />
-              <div className="hidden sm:block text-left">
-                <p className="text-[15px] font-bold text-gray-900 leading-none mb-1.5">Admin User</p>
-                <p className="text-[12px] font-medium text-gray-500 leading-none">System Administrator</p>
+            <div className="relative">
+              <div 
+                className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1.5 rounded-lg pr-2 transition-colors"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop" 
+                  alt="Admin User" 
+                  className="w-10 h-10 rounded-full object-cover border border-gray-200 shadow-sm"
+                />
+                <div className="hidden sm:block text-left">
+                  <p className="text-[15px] font-bold text-gray-900 leading-none mb-1.5">Admin User</p>
+                  <p className="text-[12px] font-medium text-gray-500 leading-none">System Administrator</p>
+                </div>
+                <ChevronDown className="w-4 h-4 text-gray-400 hidden sm:block ml-1" />
               </div>
-              <ChevronDown className="w-4 h-4 text-gray-400 hidden sm:block ml-1" />
+              
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg py-1 z-50">
+                  <Link 
+                    href="/" 
+                    className="flex items-center px-4 py-2.5 text-sm font-semibold text-rose-600 hover:bg-rose-50 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Logout
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </header>

@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { 
@@ -17,7 +17,8 @@ import {
   Menu,
   ChevronDown,
   FileCheck,
-  Wallet
+  Wallet,
+  LogOut
 } from 'lucide-react';
 
 const mainNavItems = [
@@ -49,6 +50,7 @@ export default function StudentLayout({
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   return (
     <div className="h-screen overflow-hidden bg-[#F8FAFC] flex font-sans">
@@ -126,6 +128,8 @@ export default function StudentLayout({
             <div className="hidden md:block">
               <button className="p-2 text-gray-500 hover:bg-gray-100 rounded-lg border border-gray-100 shadow-sm mr-2">
                 <Menu className="w-[18px] h-[18px]" strokeWidth={2.5} />
+        
+
               </button>
             </div>
             
@@ -139,7 +143,7 @@ export default function StudentLayout({
               />
             </div>
           </div>
-
+          
           <div className="flex items-center space-x-4 sm:space-x-6">
             <button className="relative p-2 text-gray-500 hover:bg-gray-100 rounded-full transition-colors">
               <Bell className="w-5 h-5" />
@@ -152,17 +156,35 @@ export default function StudentLayout({
 
             <div className="h-8 w-[1px] bg-gray-200 mx-1 hidden sm:block"></div>
 
-            <div className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1.5 rounded-lg pr-2 transition-colors">
-              <img 
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" 
-                alt="Juan Miguel Santos" 
-                className="w-10 h-10 rounded-full object-cover border border-gray-200 shadow-sm"
-              />
-              <div className="hidden sm:block text-left">
-                <p className="text-[15px] font-bold text-gray-900 leading-none mb-1.5">Juan Miguel Santos</p>
-                <p className="text-[12px] font-medium text-gray-500 leading-none">BSIT 2A</p>
+            <div className="relative">
+              <div 
+                className="flex items-center gap-3 cursor-pointer hover:bg-gray-50 p-1.5 rounded-lg pr-2 transition-colors"
+                onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+              >
+                <img 
+                  src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop" 
+                  alt="Juan Miguel Santos" 
+                  className="w-10 h-10 rounded-full object-cover border border-gray-200 shadow-sm"
+                />
+                <div className="hidden sm:block text-left">
+                  <p className="text-[15px] font-bold text-gray-900 leading-none mb-1.5">Juan Miguel Santos</p>
+                  <p className="text-[12px] font-medium text-gray-500 leading-none">BSIT 2A</p>
+                </div>
+                <ChevronDown className="w-4 h-4 text-gray-400 hidden sm:block ml-1" />
               </div>
-              <ChevronDown className="w-4 h-4 text-gray-400 hidden sm:block ml-1" />
+
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-white border border-gray-200 rounded-xl shadow-lg py-1 z-50">
+                  <Link 
+                    href="/" 
+                    className="flex items-center px-4 py-2.5 text-sm font-semibold text-rose-600 hover:bg-rose-50 transition-colors"
+                    onClick={() => setIsDropdownOpen(false)}
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Logout
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </header>

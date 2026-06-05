@@ -218,9 +218,6 @@ export default function Home() {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button className="grid size-10 place-items-center rounded-full border border-slate-200 bg-white text-base transition hover:border-[#08265c]/30">
-              ☼
-            </button>
             <LoginModal />
           </div>
         </div>

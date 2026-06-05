@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
 import {
   Eye,
   EyeOff,
@@ -14,6 +15,11 @@ import {
 export default function LoginModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const router = useRouter();
 
   useEffect(() => {
     if (!isOpen) return;
@@ -35,6 +41,30 @@ export default function LoginModal() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    setError("");
+    setSuccess("");
+    
+    if (email === "student" && password === "student") {
+      setSuccess("Login successful! Redirecting to Student Dashboard...");
+      setTimeout(() => {
+        setIsOpen(false);
+        router.push("/student");
+      }, 1000);
+    } else if (email === "faculty" && password === "faculty") {
+      setSuccess("Login successful! Redirecting to Faculty Dashboard...");
+      setTimeout(() => {
+        setIsOpen(false);
+        router.push("/faculty");
+      }, 1000);
+    } else if (email === "admin" && password === "admin") {
+      setSuccess("Login successful! Redirecting to Admin Dashboard...");
+      setTimeout(() => {
+        setIsOpen(false);
+        router.push("/admin");
+      }, 1000);
+    } else {
+      setError("Invalid username or password. Please try again.");
+    }
   };
 
   return (
@@ -93,17 +123,32 @@ export default function LoginModal() {
             </div>
 
             <form className="px-6 py-6" onSubmit={handleSubmit}>
+              {error && (
+                <div className="mb-5 rounded-xl bg-rose-50 p-3.5 text-sm font-semibold text-rose-600 border border-rose-100/50 flex items-center gap-3">
+                  <div className="size-1.5 rounded-full bg-rose-500 shrink-0" />
+                  {error}
+                </div>
+              )}
+              {success && (
+                <div className="mb-5 rounded-xl bg-emerald-50 p-3.5 text-sm font-semibold text-emerald-600 border border-emerald-100/50 flex items-center gap-3">
+                  <div className="size-1.5 rounded-full bg-emerald-500 shrink-0" />
+                  {success}
+                </div>
+              )}
+
               <label className="block">
                 <span className="text-xs font-black uppercase tracking-wide text-[#08265c]">
-                  Email address
+                  Username
                 </span>
                 <span className="mt-2 flex items-center gap-3 rounded-2xl border border-slate-200 bg-white px-4 py-3.5 transition focus-within:border-[#08265c]/50 focus-within:ring-4 focus-within:ring-[#08265c]/10">
                   <Mail aria-hidden="true" className="size-5 shrink-0 text-slate-400" />
                   <input
-                    autoComplete="email"
+                    autoComplete="username"
                     className="min-w-0 flex-1 bg-transparent text-sm font-semibold text-[#08265c] outline-none placeholder:text-slate-400"
-                    placeholder="name@tclass.edu.ph"
-                    type="email"
+                    placeholder="Enter your username"
+                    type="text"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
                   />
                 </span>
               </label>
@@ -122,6 +167,8 @@ export default function LoginModal() {
                     className="min-w-0 flex-1 bg-transparent text-sm font-semibold text-[#08265c] outline-none placeholder:text-slate-400"
                     placeholder="Enter your password"
                     type={showPassword ? "text" : "password"}
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
                   />
                   <button
                     aria-label={showPassword ? "Hide password" : "Show password"}
