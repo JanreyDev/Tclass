@@ -30,7 +30,7 @@ import {
 
 const mainNavItems = [
   { name: 'Dashboard', href: '/admin', icon: LayoutDashboard },
-  { name: 'Users Management', href: '/admin/users', icon: Users, hasDropdown: true },
+  { name: 'User Management', href: '/admin/users', icon: Users, hasDropdown: true },
   { name: 'Academic Management', href: '/admin/academic', icon: BookOpen, hasDropdown: true },
   { name: 'Classes & Sections', href: '/admin/classes', icon: Layers },
   { name: 'Subjects Management', href: '/admin/subjects', icon: BookText },

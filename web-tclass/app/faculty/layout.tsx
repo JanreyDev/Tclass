@@ -34,11 +34,6 @@ const mainNavItems = [
   { name: 'Attendance', href: '/faculty/attendance', icon: ClipboardCheck },
   { name: 'Grades', href: '/faculty/grades', icon: GraduationCap },
   { name: 'Evaluation', href: '/faculty/evaluation', icon: Star },
-  { name: 'Learning Materials', href: '/faculty/materials', icon: BookText },
-  { name: 'Assignments', href: '/faculty/assignments', icon: FileEdit },
-  { name: 'Announcements', href: '/faculty/announcements', icon: Megaphone },
-  { name: 'Calendar', href: '/faculty/calendar', icon: Calendar },
-  { name: 'Messages', href: '/faculty/messages', icon: MessageSquare },
   { name: 'Reports', href: '/faculty/reports', icon: FileBarChart },
   { name: 'Settings', href: '/faculty/settings', icon: Settings },
 ];
