@@ -1,5 +1,6 @@
 import EnrollOptionsModal from "./components/EnrollOptionsModal";
 import LoginModal from "./components/LoginModal";
+import { MapPin, Phone, Mail } from "lucide-react";
 
 const navItems = ["Home", "About", "Courses", "Facilities", "News & Events", "Gallery", "Contact"];
 
@@ -631,11 +632,14 @@ export default function Home() {
           </div>
           <div>
             <h3 className="mb-4 font-black uppercase">Contact Us</h3>
-            <div className="space-y-3 text-white/75 text-sm">
-              <p className="flex gap-2"><span className="shrink-0">📍</span> <span>IT Training Center Bldg, Brgy. Tibag, Tarlac City</span></p>
-              <p className="flex gap-2"><span className="shrink-0">☎</span> <span>0917-706-6718</span></p>
-              <p className="flex gap-2"><span className="shrink-0">✉</span> <span>pgt.tclass@gmail.com</span></p>
-              <p className="flex gap-2"><span className="shrink-0">f</span> <span>PROVINCIAL GOVERNMENT OF TARLAC<br/>PESO TARLAC PROVINCE</span></p>
+            <div className="space-y-4 text-white/80 text-sm">
+              <p className="flex gap-3 items-start"><MapPin className="w-5 h-5 shrink-0 text-amber-400 mt-0.5" strokeWidth={1.5} /> <span className="leading-relaxed">IT Training Center Bldg, Brgy. Tibag, Tarlac City</span></p>
+              <p className="flex gap-3 items-center"><Phone className="w-5 h-5 shrink-0 text-amber-400" strokeWidth={1.5} /> <span>0917-706-6718</span></p>
+              <p className="flex gap-3 items-center"><Mail className="w-5 h-5 shrink-0 text-amber-400" strokeWidth={1.5} /> <span>pgt.tclass@gmail.com</span></p>
+              <p className="flex gap-3 items-start">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-5 h-5 shrink-0 text-amber-400 mt-0.5"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+                <span className="leading-relaxed">PROVINCIAL GOVERNMENT OF TARLAC<br/>PESO TARLAC PROVINCE</span>
+              </p>
             </div>
           </div>
           <div>
