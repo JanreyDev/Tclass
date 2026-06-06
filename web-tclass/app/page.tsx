@@ -225,9 +225,7 @@ export default function Home() {
 
       <section className="relative isolate overflow-visible">
         <div className="absolute inset-0 -z-20 bg-[#eef8ff]" />
-        <div className="absolute inset-y-0 right-0 -z-10 w-full bg-[linear-gradient(90deg,#eef8ff_0%,#eef8ff_25%,rgba(238,248,255,.92)_39%,rgba(255,255,255,.18)_66%,rgba(255,255,255,0)_100%),url('/tclass.jpg')] bg-cover bg-[center_right]" />
-        <div className="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_68%_16%,rgba(255,255,255,.75),transparent_25%),linear-gradient(180deg,rgba(255,255,255,.05),rgba(238,248,255,.08))]" />
-        <div className="absolute bottom-0 left-0 -z-10 h-28 w-[34%] bg-gradient-to-b from-transparent to-[#f6fbff]" />
+        <div className="absolute inset-y-0 right-0 -z-10 w-full bg-[linear-gradient(90deg,rgba(238,248,255,0.85)_0%,rgba(238,248,255,0.6)_50%,transparent_100%),url('/tclass.jpg')] bg-cover bg-center" />
         <div className="mx-auto grid min-h-[560px] max-w-[1280px] items-center px-5 pb-28 pt-16 lg:grid-cols-[1.2fr_0.8fr] lg:px-6">
           <div>
             <p className="mb-4 text-[13px] font-black uppercase tracking-wide text-amber-500">Welcome to TCLASS</p>
@@ -359,12 +357,12 @@ export default function Home() {
                    <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition duration-300 z-10" />
                   <img
                     src="/mara.png"
-                    alt="Dr. Marites D. Ramos"
+                    alt="Maria Lira Reyes"
                     className="w-full h-full object-cover object-top scale-110 transition duration-500 group-hover:scale-125"
                   />
                 </div>
-                <p className="text-[20px] font-serif font-bold text-[#fe9a00] tracking-normal drop-shadow-md">Dr. Marites D. Ramos</p>
-                <p className="text-[11px] text-white/90 font-bold mt-1.5 tracking-[0.2em] uppercase">Center Director</p>
+                <p className="text-[20px] font-serif font-bold text-[#fe9a00] tracking-normal drop-shadow-md">Maria Lira Reyes</p>
+                <p className="text-[11px] text-white/90 font-bold mt-1.5 tracking-[0.2em] uppercase">Head of TCLASS</p>
               </div>
 
             </div>
