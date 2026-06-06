@@ -65,9 +65,9 @@ export default function FacultyLayout({
         
         {/* Logo Area */}
         <div className="h-28 flex items-center px-6 mt-2">
-          <div className="w-10 h-10 bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 shadow-sm border border-white/10">
+          <div className="w-[50px] h-[50px] bg-white rounded-full flex items-center justify-center mr-3 flex-shrink-0 shadow-sm border-[3px] border-[#fe9a00] overflow-hidden p-1">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/seal.png" alt="Tarlac Seal" className="w-9 h-9 rounded-full object-contain" />
+            <img src="/tclass-logo.png" alt="TCLASS Logo" className="w-full h-full object-contain scale-[1.05]" />
           </div>
           <div className="flex flex-col">
             <span className="text-white text-[18px] font-bold leading-snug tracking-wider">TCLASS</span>

@@ -195,9 +195,9 @@ export default function Home() {
       <header className="sticky top-0 z-50 border-b border-slate-200 bg-white/95 backdrop-blur-xl">
         <div className="mx-auto flex max-w-[1280px] items-center justify-between px-5 py-3 lg:px-6">
           <a className="flex items-center gap-3" href="#">
-            <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-sm border border-gray-100">
+            <div className="w-[66px] h-[66px] bg-white rounded-full flex items-center justify-center flex-shrink-0 shadow-md border-[3px] border-[#fe9a00] overflow-hidden p-1">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src="/seal.png" alt="Tarlac Seal" className="w-11 h-11 rounded-full object-contain" />
+              <img src="/tclass-logo.png" alt="TCLASS Logo" className="w-full h-full object-contain scale-[1.05]" />
             </div>
             <div>
               <p className="text-lg font-black leading-5 tracking-wide text-[#08265c]">TCLASS</p>
@@ -302,106 +302,75 @@ export default function Home() {
         </div>
       </section>
 
-      {/* LEADERSHIP SECTION */}
-      <section className="mx-auto max-w-[1280px] px-5 pb-16 lg:px-6">
-        <div className="relative overflow-hidden rounded-[32px] bg-white shadow-[0_8px_30px_rgb(0,0,0,0.06)] border border-slate-100 flex flex-col md:flex-row min-h-[550px]">
-          
-          {/* Background Split - Blue Left, White Right with Yellow Border (Desktop only) */}
-          <div className="absolute inset-0 z-0 hidden md:block">
-            <svg className="absolute h-full w-full" preserveAspectRatio="none" viewBox="0 0 100 100">
-              {/* White background on the right */}
-              <rect width="100" height="100" fill="#ffffff" />
-              {/* Capitol Background on the right */}
-              <image href="/capitol-bg.png" x="40" y="0" width="60" height="100" preserveAspectRatio="xMidYMid slice" opacity="0.15" />
-              
-              {/* Blue background with S-curve to make room for center title */}
-              <path d="M0,0 L32,0 C 36,0 36,26 45,26 L55,26 C 64,26 64,100 72,100 L0,100 Z" fill="#08265c" />
-              {/* Yellow stroke */}
-              <path d="M32,0 C 36,0 36,26 45,26 L55,26 C 64,26 64,100 72,100" fill="none" stroke="#fe9a00" strokeWidth="0.4" />
-            </svg>
-          </div>
+      {/* LEADERSHIP SECTION — Banner Style */}
+      <section className="relative w-full overflow-hidden mt-8 mb-16">
 
-          {/* Mobile Backgrounds */}
-          <div className="absolute inset-0 z-0 block md:hidden flex flex-col">
-            <div className="flex-1 bg-[#08265c] relative">
-              <div className="absolute bottom-0 w-full h-1 bg-[#fe9a00]" />
+        {/* Dark navy background */}
+        <div className="absolute inset-0 bg-[#08265c]" />
+
+        {/* Capitol building subtle background */}
+        <div
+          className="absolute inset-0 bg-cover bg-center opacity-35"
+          style={{ backgroundImage: "url('/capitol-bg.png')" }}
+        />
+
+        {/* Gradient overlay — darker on left for text legibility */}
+        <div className="absolute inset-0 bg-gradient-to-r from-[#08265c] via-[#08265c]/70 to-[#08265c]/20" />
+
+        {/* Content */}
+        <div className="relative z-10 mx-auto max-w-[1280px] px-5 lg:px-6 py-16">
+          <div className="flex flex-col md:flex-row items-center gap-10">
+
+            {/* LEFT: Heading */}
+            <div className="flex-1 min-w-0">
+              <p className="text-[11px] font-black uppercase tracking-widest text-[#fe9a00] mb-3">Our Leadership</p>
+              <h2 className="text-[34px] md:text-[40px] font-black leading-tight tracking-tight mb-5 flex flex-col items-start">
+                <span className="text-white">Leading with Purpose.</span>
+                <span className="bg-[#fe9a00] text-[#08265c] px-3 mt-1.5 inline-block">Empowering Futures.</span>
+              </h2>
+              <p className="text-[14px] text-white/65 leading-relaxed max-w-[340px] font-medium">
+                United in our commitment to quality education, skills development, and lifelong learning.
+              </p>
             </div>
-            <div className="flex-1 bg-white relative">
-              <img src="/capitol-bg.png" className="absolute inset-0 w-full h-full object-cover opacity-15" alt="" />
-            </div>
-          </div>
 
-          {/* Top Center Title (Desktop) */}
-          <div className="absolute top-10 left-1/2 -translate-x-1/2 z-30 text-center w-full max-w-md px-4 hidden md:block">
-             <p className="text-[11px] font-black uppercase tracking-widest text-[#fe9a00]">Our Leadership</p>
-             <h2 className="mt-1 text-[28px] font-black text-[#08265c] tracking-tight">Message from Our Leaders</h2>
-             <p className="mt-1 text-[13px] text-[#08265c]/80 font-medium">Guided by a shared vision and a strong commitment to excellence.</p>
-          </div>
+            {/* RIGHT: Two circular profile cards */}
+            <div className="flex flex-col md:flex-row items-center gap-0 shrink-0">
 
-          {/* Top Center Title (Mobile) */}
-          <div className="relative z-30 text-center w-full px-5 pt-10 pb-4 block md:hidden bg-[#08265c]">
-             <p className="text-[11px] font-black uppercase tracking-widest text-[#fe9a00]">Our Leadership</p>
-             <h2 className="mt-1 text-2xl font-black text-white tracking-tight">Message from Our Leaders</h2>
-          </div>
-
-          <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 w-full h-full">
-            
-            {/* Left Column: Center Director */}
-            <div className="relative flex flex-col md:block items-center md:items-end justify-start h-auto md:h-[550px] pt-10 md:pt-0 overflow-hidden">
-              {/* Background Logo */}
-              <img src="/tclass-logo.png" className="absolute left-[-5%] top-[10%] h-64 opacity-[0.06] mix-blend-overlay pointer-events-none" alt="" />
-              
-              {/* Director Image */}
-              <img src="/mara.png" className="relative md:absolute left-0 bottom-0 h-[300px] md:h-[90%] object-contain z-20 mx-auto md:mx-0 drop-shadow-2xl" alt="Dr. Marites D. Ramos" />
-              
-              {/* Director Text */}
-              <div className="relative md:absolute right-0 md:right-8 lg:right-12 top-0 md:top-1/2 md:-translate-y-[40%] w-full max-w-[320px] text-white z-30 p-6 md:p-0 text-center md:text-left bg-[#08265c] md:bg-transparent mt-[-20px] md:mt-0 rounded-t-3xl md:rounded-none">
-                <span className="text-5xl text-[#fe9a00] font-serif leading-none absolute -top-4 md:-top-8 left-4 md:-left-4 opacity-40">“</span>
-                <p className="font-bold text-[#fe9a00] text-[10px] uppercase tracking-widest mt-2 md:mt-1">Message from the</p>
-                <h3 className="text-[26px] font-black leading-tight mt-0.5 tracking-tight">Center Director</h3>
-                <div className="w-10 h-0.5 bg-[#fe9a00] mt-3 mb-4 mx-auto md:mx-0" />
-                <p className="text-[13px] text-white/90 leading-relaxed mb-5 font-medium">
-                  At TCLASS, we believe that education is the foundation of personal and professional growth. Our programs equip learners with industry-relevant skills and the confidence to thrive today and lead tomorrow.
-                </p>
-                <p className="font-serif italic text-2xl text-[#fe9a00] tracking-wide">Dr. Marites D. Ramos</p>
-                <p className="text-[10px] text-white/60 uppercase tracking-widest mt-1 font-bold">Center Director, TCLASS</p>
-                
-                <button className="mt-6 mx-auto md:mx-0 flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-[12px] font-bold text-[#08265c] transition hover:bg-slate-100 hover:shadow-lg shadow-md group">
-                  Read Full Message <span className="transition-transform group-hover:translate-x-1">→</span>
-                </button>
+              {/* Governor */}
+              <div className="flex flex-col items-center text-center px-6 md:px-10">
+                <div className="w-[160px] h-[160px] rounded-full overflow-hidden border-[5px] border-white shadow-2xl mb-4 bg-white relative group">
+                  <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition duration-300 z-10" />
+                  <img
+                    src="/gov-yap.png"
+                    alt="Hon. Christian Yap"
+                    className="w-full h-full object-cover object-top scale-110 transition duration-500 group-hover:scale-125"
+                  />
+                </div>
+                <p className="text-[20px] font-serif font-bold text-[#fe9a00] tracking-normal drop-shadow-md">Hon. Christian Yap</p>
+                <p className="text-[11px] text-white/90 font-bold mt-1.5 tracking-[0.2em] uppercase">Governor, Tarlac</p>
               </div>
-            </div>
 
-            {/* Right Column: Governor */}
-            <div className="relative flex flex-col-reverse md:block items-center md:items-end justify-end h-auto md:h-[550px] overflow-hidden">
-              {/* Governor Image */}
-              <img src="/gov-yap.png" className="relative md:absolute right-0 bottom-0 h-[300px] md:h-[95%] object-contain z-20 mx-auto md:mx-0 drop-shadow-2xl" alt="Hon. Christian Yap" />
-              
-              {/* Tarlac Seal */}
-              <img src="/seal.png" className="absolute right-4 top-4 md:right-8 md:top-12 h-20 md:h-24 z-30 drop-shadow-lg" alt="Province of Tarlac" />
+              {/* Vertical divider */}
+              <div className="hidden md:block w-px h-32 bg-gradient-to-b from-transparent via-white/30 to-transparent self-center mx-2" />
 
-              {/* Governor Text */}
-              <div className="relative md:absolute left-0 md:left-8 lg:left-12 top-0 md:top-1/2 md:-translate-y-[40%] w-full max-w-[320px] text-[#08265c] z-30 p-6 md:p-0 text-center md:text-left bg-white/80 md:bg-transparent backdrop-blur-sm md:backdrop-blur-none mt-[-20px] md:mt-0 rounded-b-3xl md:rounded-none">
-                <span className="text-5xl text-[#08265c] font-serif leading-none absolute -top-4 md:-top-8 left-4 md:-left-4 opacity-20">“</span>
-                <p className="font-bold text-[#08265c] text-[10px] uppercase tracking-widest mt-2 md:mt-1">Message from the</p>
-                <h3 className="text-[26px] font-black leading-tight mt-0.5 tracking-tight">Governor</h3>
-                <div className="w-10 h-0.5 bg-[#fe9a00] mt-3 mb-4 mx-auto md:mx-0" />
-                <p className="text-[13px] text-[#08265c]/80 leading-relaxed mb-5 font-medium">
-                  Welcome to TCLASS. Our commitment is to provide quality education and skills training that empower every Tarlaqueño to succeed in an ever-changing world. Together, let us build a brighter and more prosperous future for Tarlac.
-                </p>
-                <p className="font-serif italic text-2xl text-[#08265c] tracking-wide">Hon. Christian Yap</p>
-                <p className="text-[10px] text-[#08265c]/60 uppercase tracking-widest mt-1 font-bold">Governor, Province of Tarlac</p>
-                
-                <button className="mt-6 mx-auto md:mx-0 flex items-center gap-2 rounded-full bg-[#08265c] px-5 py-2.5 text-[12px] font-bold text-white transition hover:bg-[#08265c]/90 hover:shadow-lg shadow-md group">
-                  Read Full Message <span className="transition-transform group-hover:translate-x-1">→</span>
-                </button>
+              {/* Center Director */}
+              <div className="flex flex-col items-center text-center px-6 md:px-10 mt-10 md:mt-0">
+                <div className="w-[160px] h-[160px] rounded-full overflow-hidden border-[5px] border-white shadow-2xl mb-4 bg-white relative group">
+                   <div className="absolute inset-0 bg-black/5 group-hover:bg-transparent transition duration-300 z-10" />
+                  <img
+                    src="/mara.png"
+                    alt="Dr. Marites D. Ramos"
+                    className="w-full h-full object-cover object-top scale-110 transition duration-500 group-hover:scale-125"
+                  />
+                </div>
+                <p className="text-[20px] font-serif font-bold text-[#fe9a00] tracking-normal drop-shadow-md">Dr. Marites D. Ramos</p>
+                <p className="text-[11px] text-white/90 font-bold mt-1.5 tracking-[0.2em] uppercase">Center Director</p>
               </div>
-            </div>
 
+            </div>
           </div>
         </div>
       </section>
-
 
       <section id="courses" className="mx-auto max-w-[1280px] px-5 pb-14 pt-12 lg:px-6">
         <SectionTitle title="Our Courses" subtitle="Industry-relevant training programs for skill development and employment." />
